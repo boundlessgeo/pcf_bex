@@ -1,18 +1,13 @@
 Pcf_Geonode
 ========================
 
-You should write some docs, it's good for the soul.
-
 Installation
 ------------
 
-Create a new template based on the geonode example project.::
-    
-    $ django-admin.py startproject my_geonode --template=https://github.com/GeoNode/geonode-project/archive/master.zip -epy,rst,yml
-    $ sudo pip install -e my_geonode
+Install the PWS CLI (https://docs.run.pivotal.io/starting/), configure your credentials then::
 
-.. note:: You should NOT use the name geonode for your project as it will conflict with the default geonode package name.
+   $ git clone https://github.com/terranodo/pcf_geonode.git
+   $ cd pcf_geonode
+   $ cf push pcf_geonode
 
-Usage
------
 
