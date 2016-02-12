@@ -1,1 +1,1 @@
-web: gunicorn pcf_geonode.wsgi --log-file -
+web: gunicorn pcf_geonode.wsgi --log-file ../logs/gunicorn.log
