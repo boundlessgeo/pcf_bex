@@ -20,6 +20,7 @@
 
 # Django settings for the GeoNode project.
 import os
+import json
 from urlparse import urlparse
 import geonode
 from geonode.settings import *
@@ -63,7 +64,7 @@ TEMPLATE_DIRS = (
 # Location of url mappings
 ROOT_URLCONF = 'pcf_geonode.urls'
 
-INSTALLED_APPS = INSTALLED_APPS + ['haystack',]
+INSTALLED_APPS = INSTALLED_APPS + ('haystack',)
 
 # Location of locale files
 LOCALE_PATHS = (
