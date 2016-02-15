@@ -1,1 +1,1 @@
-web: gunicorn pcf_geonode.wsgi -b 0.0.0.0:$PORT --log-file ../logs/gunicorn.log
+web: gunicorn pcf_geonode.wsgi --log-level=debug --logger-class=simple -b 0.0.0.0:$PORT
