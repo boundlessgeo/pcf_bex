@@ -64,7 +64,6 @@ TEMPLATE_DIRS = (
 # Location of url mappings
 ROOT_URLCONF = 'pcf_geonode.urls'
 
-INSTALLED_APPS = INSTALLED_APPS + ('haystack',)
 
 # Location of locale files
 LOCALE_PATHS = (
@@ -72,23 +71,25 @@ LOCALE_PATHS = (
     ) + LOCALE_PATHS
 
 # Get ElasticSearch config from environment variables that point to a service url.
-searchly_service = json.loads(os.environ['VCAP_SERVICES'])['searchly'][0]['credentials']['uri']
+if 'VCAP_SERVICES' in os.environ:
+    searchly_service = json.loads(os.environ['VCAP_SERVICES'])['searchly'][0]['credentials']['uri']
 
-# Get your connection url from Searchly dashboard
-es = urlparse(searchly_service)
-port = es.port or 80
+    # Get your connection url from Searchly dashboard
+    es = urlparse(searchly_service)
+    port = es.port or 80
 
-HAYSTACK_CONNECTIONS = {
-    'default': {
-        'ENGINE': 'haystack.backends.elasticsearch_backend.ElasticsearchSearchEngine',
-        'URL': es.scheme + '://' + es.hostname + ':' + str(port),
-        'INDEX_NAME': 'documents',
-    },
-}
+    HAYSTACK_CONNECTIONS = {
+        'default': {
+            'ENGINE': 'haystack.backends.elasticsearch_backend.ElasticsearchSearchEngine',
+            'URL': es.scheme + '://' + es.hostname + ':' + str(port),
+            'INDEX_NAME': 'documents',
+        },
+    }
 
-if es.username:
-    HAYSTACK_CONNECTIONS['default']['KWARGS'] = {"http_auth": es.username + ':' + es.password}
+    if es.username:
+        HAYSTACK_CONNECTIONS['default']['KWARGS'] = {"http_auth": es.username + ':' + es.password}
 
+    INSTALLED_APPS = INSTALLED_APPS + ('haystack',)
 
 import dj_database_url
 DATABASES = {'default': dj_database_url.config()}
