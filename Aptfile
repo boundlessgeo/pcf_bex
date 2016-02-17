@@ -1,0 +1,9 @@
+gdal-bin
+libgeos-dev
+libgeos-dev
+libjpeg-dev
+libpng-dev
+libpq-dev
+libproj-dev
+libxml2-dev
+libxslt-dev
