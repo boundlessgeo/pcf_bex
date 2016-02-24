@@ -71,6 +71,7 @@ LOCALE_PATHS = (
     ) + LOCALE_PATHS
 
 # Get ElasticSearch config from environment variables that point to a service url.
+"""
 if 'VCAP_SERVICES' in os.environ:
     searchly_service = json.loads(os.environ['VCAP_SERVICES'])['searchly'][0]['credentials']['uri']
 
@@ -100,6 +101,7 @@ HAYSTACK_FACET_COUNTS = True
 
 HAYSTACK_SIGNAL_PROCESSOR = 'haystack.signals.RealtimeSignalProcessor'
 HAYSTACK_SEARCH_RESULTS_PER_PAGE = 20
+"""
 
 import dj_database_url
 DATABASES = {'default': dj_database_url.config()}
