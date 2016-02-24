@@ -1,7 +1,7 @@
 ---
 applications:
 - name: cf-geonode
-  buildpack: https://github.com/ozzyjohnson/heroku-buildpack-multi.git
+  buildpack: https://github.com/cloudfoundry/python-buildpack
   instances: 1
   memory: 128M
   command: null
