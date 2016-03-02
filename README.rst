@@ -8,6 +8,7 @@ Install the PWS CLI (https://docs.run.pivotal.io/starting/), configure your cred
 
    $ git clone https://github.com/terranodo/pcf_geonode.git
    $ cd pcf_geonode
-   $ cf push pcf_geonode
-
-
+Initial push
+   $ cf push -c "bash ./init_db.sh"
+Additional pushes
+   $ cf push
