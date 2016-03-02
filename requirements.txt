@@ -29,7 +29,6 @@ django-taggit==0.12
 django-tastypie==0.11.0
 flake8==2.3.0
 geolinks==0.0.1
-#-e git+https://github.com/terranodo/geonode.git@pcf#egg=GeoNode
 -e git+https://github.com/GeoNode/geonode.git@master#egg=GeoNode
 geonode-agon-ratings==0.3.1
 geonode-announcements==1.0.5

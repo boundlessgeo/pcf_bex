@@ -70,38 +70,5 @@ LOCALE_PATHS = (
     os.path.join(LOCAL_ROOT, 'locale'),
     ) + LOCALE_PATHS
 
-# Get ElasticSearch config from environment variables that point to a service url.
-"""
-if 'VCAP_SERVICES' in os.environ:
-    searchly_service = json.loads(os.environ['VCAP_SERVICES'])['searchly'][0]['credentials']['uri']
-
-    # Get your connection url from Searchly dashboard
-    es = urlparse(searchly_service)
-    port = es.port or 80
-
-    HAYSTACK_CONNECTIONS = {
-        'default': {
-            'ENGINE': 'haystack.backends.elasticsearch_backend.ElasticsearchSearchEngine',
-            'URL': es.scheme + '://' + es.hostname + ':' + str(port),
-            'INDEX_NAME': 'geonode',
-        },
-    }
-
-    if es.username:
-        HAYSTACK_CONNECTIONS['default']['KWARGS'] = {"http_auth": es.username + ':' + es.password}
-
-    INSTALLED_APPS = INSTALLED_APPS + ('haystack',)
-
-# Run "python manage.py rebuild_index"
-HAYSTACK_SEARCH = True
-# Avoid permissions prefiltering
-SKIP_PERMS_FILTER = True
-# Update facet counts from Haystack
-HAYSTACK_FACET_COUNTS = True
-
-HAYSTACK_SIGNAL_PROCESSOR = 'haystack.signals.RealtimeSignalProcessor'
-HAYSTACK_SEARCH_RESULTS_PER_PAGE = 20
-"""
-
 import dj_database_url
 DATABASES = {'default': dj_database_url.config()}

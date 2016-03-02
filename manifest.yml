@@ -1,10 +1,11 @@
 ---
 applications:
 - name: cf-geonode
-  buildpack: https://github.com/cloudfoundry/python-buildpack
-  instances: 1
-  memory: 128M
+  buildpack: https://github.com/boundlessgeo/geonode-python-buildpack
   command: null
+  instances: 1
+  memory: 1G
+  disk_quota: 2G
   services:
     - geonode_db 
   env:
