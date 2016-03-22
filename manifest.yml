@@ -1,6 +1,6 @@
 ---
 applications:
-- name: cf-geonode
+- name: cf-bex
   buildpack: https://github.com/boundlessgeo/geonode-python-buildpack
   command: null
   instances: 1
